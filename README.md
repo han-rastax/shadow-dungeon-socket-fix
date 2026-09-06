@@ -18,9 +18,9 @@ A related exception can occur in `WarehouseManager.PutItem`. Because the transfe
 
 The patch temporarily skips the vulnerable socket-icon activation loop. It allows the character to load, but it does **not** repair the invalid item or the crafting rule that created it.
 
-## Supported game DLL
+## Supported game version and DLL
 
-This release intentionally supports exactly one `Assembly-CSharp.dll` build:
+This release is for **Shadow Dungeon 1.1.5** (Steam build `25148878`) and intentionally supports exactly one `Assembly-CSharp.dll` build:
 
 ```text
 Original SHA-256: F1D130502E9F16477E779475B352F8BB127A1F7E6A0266FA9E761742899BF6B6
@@ -38,20 +38,20 @@ If the hash is different, the script refuses to modify the file. This is expecte
    C:\Users\<your-name>\AppData\LocalLow\OO Cat\Shadow Dungeon
    ```
 
-3. Download `ShadowDungeon-SocketFix.ps1` from this repository and inspect it if you wish. It downloads nothing and does not edit save files.
+3. Download `ShadowDungeon-v1.1.5-SocketFix.ps1` from this repository and inspect it if you wish. It downloads nothing and does not edit save files.
 
 ## Apply the temporary fix
 
 Open PowerShell in the folder containing the script and run:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\ShadowDungeon-SocketFix.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\ShadowDungeon-v1.1.5-SocketFix.ps1
 ```
 
 The script normally finds the game in your Steam libraries automatically. If it cannot, pass the full path:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\ShadowDungeon-SocketFix.ps1 `
+powershell -NoProfile -ExecutionPolicy Bypass -File .\ShadowDungeon-v1.1.5-SocketFix.ps1 `
   -AssemblyPath "D:\SteamLibrary\steamapps\common\Shadow Dungeon\Shadow Dungeon_Data\Managed\Assembly-CSharp.dll"
 ```
 
@@ -70,7 +70,7 @@ After it reports success, start the game normally through Steam and try loading 
 Close the game, then run:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\ShadowDungeon-SocketFix.ps1 -Restore
+powershell -NoProfile -ExecutionPolicy Bypass -File .\ShadowDungeon-v1.1.5-SocketFix.ps1 -Restore
 ```
 
 You can also use **Steam → Shadow Dungeon → Properties → Installed Files → Verify integrity of game files**. A Steam update or integrity check may remove the temporary patch automatically.
